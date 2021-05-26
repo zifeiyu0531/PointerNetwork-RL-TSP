@@ -22,15 +22,15 @@ net_arg.add_argument('--hidden_dim', type=int, default=128, help='actor LSTM num
 
 # Data
 data_arg = add_argument_group('Data')
-data_arg.add_argument('--batch_size', type=int, default=128, help='batch size')
-data_arg.add_argument('--max_length', type=int, default=40, help='number of city')
+data_arg.add_argument('--batch_size', type=int, default=158, help='batch size')
+data_arg.add_argument('--max_length', type=int, default=20, help='number of city')
 data_arg.add_argument('--input_dimension', type=int, default=2, help='coordinate of city')
 
 
 # Training / test parameters
 train_arg = add_argument_group('Training')
-train_arg.add_argument('--iteration', type=int, default=100000, help='number of iteration')
-train_arg.add_argument('--lr1_start', type=float, default=0.0001, help='actor learning rate')
+train_arg.add_argument('--iteration', type=int, default=50000, help='number of iteration')
+train_arg.add_argument('--lr1_start', type=float, default=0.001, help='actor learning rate')
 train_arg.add_argument('--lr1_decay_step', type=int, default=500, help='lr1 decay step')
 train_arg.add_argument('--lr1_decay_rate', type=float, default=0.96, help='lr1 decay rate')
 

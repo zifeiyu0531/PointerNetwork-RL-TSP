@@ -1,2 +1,0 @@
-model_checkpoint_path: "actor.ckpt"
-all_model_checkpoint_paths: "actor.ckpt"
