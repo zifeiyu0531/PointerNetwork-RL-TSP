@@ -42,7 +42,6 @@ class Actor(object):
         self.build_critic()
         self.build_reward()
         self.build_optim()
-        self.merged = tf.summary.merge_all()
 
     def build_permutation(self):
         with tf.variable_scope("encoder"):
@@ -117,7 +116,6 @@ class Actor(object):
                 # Loss
                 # 最小化这个差值
                 self.loss1 = tf.reduce_mean(self.reward_baseline * self.log_softmax, 0)
-                tf.summary.scalar('loss1', self.loss1)
                 # Minimize step
                 gvs = self.opt1.compute_gradients(self.loss1)
                 capped_gvs = [(tf.clip_by_norm(grad, 1.), var) for grad, var in gvs if grad is not None]  # L2 clip
@@ -131,7 +129,6 @@ class Actor(object):
                 self.opt2 = tf.train.AdamOptimizer(learning_rate=self.lr2, beta1=0.9, beta2=0.99, epsilon=0.0000001)
                 # Loss
                 self.loss2 = tf.losses.mean_squared_error(self.reward, self.critic.predictions, weights=1.0)
-                tf.summary.scalar('loss2', self.loss2)
                 # Minimize step
                 gvs2 = self.opt2.compute_gradients(self.loss2)
                 capped_gvs2 = [(tf.clip_by_norm(grad, 1.), var) for grad, var in gvs2 if grad is not None]

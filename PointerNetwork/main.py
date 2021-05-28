@@ -50,8 +50,8 @@ def main():
                 feed = {actor.input_: input_batch}
 
                 # Forward pass & train step
-                positions, reward, summary, train_step1, train_step2 = sess.run(
-                    [actor.positions, actor.reward, actor.merged, actor.train_step1, actor.train_step2],
+                positions, reward, train_step1, train_step2 = sess.run(
+                    [actor.positions, actor.reward, actor.train_step1, actor.train_step2],
                     feed_dict=feed)
 
                 rewards.append(np.mean(reward))
