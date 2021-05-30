@@ -22,8 +22,8 @@ net_arg.add_argument('--hidden_dim', type=int, default=128, help='actor LSTM num
 
 # Data
 data_arg = add_argument_group('Data')
-data_arg.add_argument('--batch_size', type=int, default=158, help='batch size')
-data_arg.add_argument('--max_length', type=int, default=20, help='number of city')
+data_arg.add_argument('--batch_size', type=int, default=64, help='batch size')
+data_arg.add_argument('--max_length', type=int, default=22, help='number of city')
 data_arg.add_argument('--input_dimension', type=int, default=2, help='coordinate of city')
 
 

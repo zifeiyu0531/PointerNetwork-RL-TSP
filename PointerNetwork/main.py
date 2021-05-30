@@ -75,8 +75,8 @@ def main():
             feed = {actor.input_: input_batch}
 
             # Sample solutions
-            positions, _, _, _, _ = sess.run(
-                [actor.positions, actor.reward, actor.merged, actor.train_step1, actor.train_step2],
+            positions, _, _, _ = sess.run(
+                [actor.positions, actor.reward, actor.train_step1, actor.train_step2],
                 feed_dict=feed)
 
             city = input_batch[0]
