@@ -132,4 +132,4 @@ class Actor(object):
                 # Minimize step
                 gvs2 = self.opt2.compute_gradients(self.loss2)
                 capped_gvs2 = [(tf.clip_by_norm(grad, 1.), var) for grad, var in gvs2 if grad is not None]
-                self.train_step2 = self.opt1.apply_gradients(capped_gvs2, global_step=self.global_step2)
+                self.train_step2 = self.opt2.apply_gradients(capped_gvs2, global_step=self.global_step2)
